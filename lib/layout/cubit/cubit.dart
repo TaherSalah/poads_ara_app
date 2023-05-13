@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poads_app/layout/cubit/states.dart';
 
-import '../../moduls/categories/categories_screen.dart';
-import '../../moduls/home/home_screen.dart';
-import '../../moduls/settings/settings_screen.dart';
+import '../../screens/categories/categories_screen.dart';
+import '../../screens/home/home_screen.dart';
+import '../../screens/settings/settings_screen.dart';
 
 class PoadcastCubit extends Cubit<PodcastStates> {
   PoadcastCubit() : super(PodcastInitialState());
@@ -19,7 +19,7 @@ class PoadcastCubit extends Cubit<PodcastStates> {
 //////// Screen  List //////////
   List<Widget> screenBottom = [
     HomeScreen(),
-     CategoriesScreen(),
+     const CategoriesScreen(),
     const SettingsScreen(),
   ];
 

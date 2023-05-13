@@ -19,43 +19,43 @@ class SearchScreen extends StatelessWidget {
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'cairo')),
-              SizedBox(
+              const SizedBox(
                 height: 70,
               ),
               TextField(
                 decoration: InputDecoration(
                     hintText:
                         ' اكتب كلمة مفتاحية عن الموضوع الذي تريد الاستماع اليه الان',
-                    helperStyle: TextStyle(fontFamily: 'cairo'),
-                    label: Text(
+                    helperStyle: const TextStyle(fontFamily: 'cairo'),
+                    label: const Text(
                       'ابحث الان',
                       style: TextStyle(
                           fontFamily: 'cairo', fontWeight: FontWeight.bold),
                     ),
-                    suffixIcon: Icon(Icons.search),
+                    suffixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10))),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               FilledButton.icon(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.search),
-                label: Text(
+                icon: const Icon(Icons.search),
+                label: const Text(
                   'ابحث الان',
                   style: TextStyle(
                       fontFamily: 'cairo', fontWeight: FontWeight.bold),
                 ),
                 style: ButtonStyle(
-                    mouseCursor: MaterialStatePropertyAll(
+                    mouseCursor: const MaterialStatePropertyAll(
                         MaterialStateMouseCursor.clickable),
                     overlayColor: MaterialStatePropertyAll(Colors.amber[900]),
-                    shadowColor: MaterialStatePropertyAll(Colors.black12),
-                    elevation: MaterialStatePropertyAll(10),
-                    padding: MaterialStatePropertyAll(EdgeInsets.all(25))),
+                    shadowColor: const MaterialStatePropertyAll(Colors.black12),
+                    elevation: const MaterialStatePropertyAll(10),
+                    padding: const MaterialStatePropertyAll(EdgeInsets.all(25))),
               )
             ],
           ),

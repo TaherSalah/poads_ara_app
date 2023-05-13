@@ -9,6 +9,7 @@ import '../views_all/display_arabic.dart';
 import '../views_all/display_goghraphic.dart';
 import '../views_all/display_history.dart';
 
+// ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -21,24 +22,35 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-
       child: Column(
         children: [
           myDivider(),
-           CategTitles(title: 'اللغة العربية', subtitle: "عرض الكل",onPressed: (){navigateTo(context, ArabicScreen());}),
+          CategTitles(
+              title: 'اللغة العربية',
+              subtitle: "عرض الكل",
+              onPressed: () {
+                navigateTo(context, const ArabicScreen());
+              }),
           myDivider(),
-          ItemsBuilder(),
+          const ItemsBuilder(),
           myDivider(),
-           CategTitles(title: 'التاريخ', subtitle: "عرض الكل",onPressed: (){
-             navigateTo(context, const HistoryScreen());
-           },),
-          ItemsBuilder(),
+          CategTitles(
+            title: 'التاريخ',
+            subtitle: "عرض الكل",
+            onPressed: () {
+              navigateTo(context, const HistoryScreen());
+            },
+          ),
+          const ItemsBuilder(),
           myDivider(),
-           CategTitles(title: 'الجغرافيا', subtitle: "عرض الكل",onPressed: (){
-             navigateTo(context, const GeoghaphicScreen());
-           },),
-          ItemsBuilder(),
-
+          CategTitles(
+            title: 'الجغرافيا',
+            subtitle: "عرض الكل",
+            onPressed: () {
+              navigateTo(context, const GeoghaphicScreen());
+            },
+          ),
+          const ItemsBuilder(),
         ],
       ),
     );
@@ -51,15 +63,15 @@ class ItemsBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemBuilder: (context, index) {
           return PoadsItemsBuilder(
+              audio: araContents[index].audio,
               title: araContents[index].title,
               subtitle: araContents[index].desc,
-              index: '${index + 1}'
-          );
+              index: '${index + 1}');
         },
         separatorBuilder: (context, index) {
           return const SizedBox(
@@ -67,6 +79,5 @@ class ItemsBuilder extends StatelessWidget {
           );
         },
         itemCount: araContents.length);
-    ;
   }
 }

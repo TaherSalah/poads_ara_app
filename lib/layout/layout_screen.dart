@@ -4,7 +4,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:poads_app/componts/style/colors.dart';
 import 'package:poads_app/componts/widgets/navigator.dart';
 import 'package:poads_app/layout/cubit/cubit.dart';
-import '../moduls/search/search_screen.dart';
+import '../screens/search/search_screen.dart';
 import 'cubit/states.dart';
 
 class LayoutScreen extends StatelessWidget {
@@ -27,11 +27,11 @@ class LayoutScreen extends StatelessWidget {
                 onPressed: () {
                   navigateTo(context, const SearchScreen());
                 },
-                icon: Icon(Icons.search),
+                icon:const Icon(Icons.search),
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.dark_mode),
+                icon: const Icon(Icons.dark_mode),
               )
             ],
           ),
@@ -73,21 +73,20 @@ Widget defualtBottomNavigationBar({
   required int currentIndex,
   required BuildContext context,
 }) =>
-    Container(
-        child: Padding(
+    Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 12.0),
       child: GNav(
-        gap: 7,
-        onTabChange: onTabChange,
-        selectedIndex: 0,
-        curve: Curves.bounceInOut,
-        activeColor: scondaryColor,
-        hoverColor: Colors.lime,
-        color: Colors.grey,
-        textStyle: Theme.of(context).textTheme.subtitle2!.copyWith(
-            fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
-        tabBackgroundColor: Colors.black45,
-        padding: const EdgeInsets.all(16),
-        tabs: tabs,
+    gap: 7,
+    onTabChange: onTabChange,
+    selectedIndex: 0,
+    curve: Curves.bounceInOut,
+    activeColor: scondaryColor,
+    hoverColor: Colors.lime,
+    color: Colors.grey,
+    textStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+        fontSize: 16.0, color: Colors.white, fontWeight: FontWeight.bold),
+    tabBackgroundColor: Colors.black45,
+    padding: const EdgeInsets.all(16),
+    tabs: tabs,
       ),
-    ));
+    );

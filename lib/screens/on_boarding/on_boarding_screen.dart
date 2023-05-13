@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:flutter/material.dart';
 import 'package:poads_app/componts/style/colors.dart';
 import 'package:poads_app/componts/widgets/navigator.dart';
@@ -34,7 +36,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         borderRadius: BorderRadius.all(
           Radius.circular(50),
         ),
-        color: Color(0xFF000000),
+        color: Colors.amberAccent,
       ),
       margin: const EdgeInsets.only(right: 5),
       height: 10,
@@ -80,6 +82,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             style: TextStyle(
                               fontFamily: "Mulish",
                               fontWeight: FontWeight.w600,
+                              color: Colors.amber.withOpacity(0.5),
                               fontSize: (width <= 550) ? 30 : 35,
                             ),
                           ),
@@ -87,8 +90,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           Text(
                             contents[i].desc,
                             style: TextStyle(
-                              fontFamily: "Mulish",
+                              fontFamily: "cairo",
                               fontWeight: FontWeight.w300,
+                              color: Colors.white,
+
                               fontSize: (width <= 550) ? 17 : 25,
                             ),
                             textAlign: TextAlign.center,
@@ -155,7 +160,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 },
                                 child: const Text(
                                   "SKIP",
-                                  style: TextStyle(color: Colors.black),
+                                  style: TextStyle(color: Colors.amberAccent),
                                 ),
                                 style: TextButton.styleFrom(
                                   elevation: 0,
@@ -174,7 +179,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 },
                                 child: const Text("NEXT"),
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
+                                  backgroundColor: Colors.brown.withOpacity(0.5),
+
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(100),
                                   ),

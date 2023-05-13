@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:poads_app/moduls/on_boarding/on_boarding_screen.dart';
+import 'package:poads_app/screens/on_boarding/on_boarding_screen.dart';
 
-import '../home/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,7 +14,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Timer(
         const Duration(seconds: 3),
@@ -52,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontSize: 20),
             ),
             const CircularProgressIndicator(),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
 
           ],
         ),

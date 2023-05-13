@@ -16,7 +16,7 @@ class _EditScreenState extends State<EditScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('تعديل الملف الشخصي'),
+        title: const Text('تعديل الملف الشخصي'),
 
       ),
       body: Directionality(
@@ -29,7 +29,7 @@ class _EditScreenState extends State<EditScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text("تعديل البيانات الشخصية",style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 25,fontWeight: FontWeight.bold),),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               defualtFormField(
 
                 validate: Validator.name,

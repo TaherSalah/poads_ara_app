@@ -20,18 +20,17 @@
 //   }
 // }
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:poads_app/componts/widgets/navigator.dart';
-import 'package:poads_app/moduls/views_all/display_ahiaa.dart';
-import 'package:poads_app/moduls/views_all/display_economie.dart';
-import 'package:poads_app/moduls/views_all/display_phalcafa.dart';
+import 'package:poads_app/screens/views_all/display_ahiaa.dart';
+import 'package:poads_app/screens/views_all/display_economie.dart';
+import 'package:poads_app/screens/views_all/display_phalcafa.dart';
 import '../views_all/display_arabic.dart';
 import '../views_all/display_goghraphic.dart';
 import '../views_all/display_history.dart';
 
 class CategoriesScreen extends StatefulWidget {
-  CategoriesScreen({Key? key}) : super(key: key);
+  const CategoriesScreen({Key? key}) : super(key: key);
 
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
@@ -106,6 +105,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   }
 }
 
+// ignore: camel_case_types
 class itemsModel {
   // final String image;
   final String title;

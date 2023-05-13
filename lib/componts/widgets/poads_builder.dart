@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-
+import 'package:assets_audio_player/assets_audio_player.dart';
 
 class PoadsItemsBuilder extends StatefulWidget {
-  PoadsItemsBuilder(
+  const PoadsItemsBuilder(
       {Key? key,
       required this.title,
       required this.subtitle,
-      required this.index})
+      required this.index,
+      required this.audio})
       : super(key: key);
 
   @override
@@ -16,14 +17,20 @@ class PoadsItemsBuilder extends StatefulWidget {
   final String title;
   final String subtitle;
   final String index;
+  final String audio;
 }
+AssetsAudioPlayer audio = AssetsAudioPlayer.newPlayer();
+bool isPlay=true;
+
 
 class _PoadsItemsBuilderState extends State<PoadsItemsBuilder> {
   @override
   Widget build(BuildContext context) {
+
     return InkWell(
       onTap: () async {
         setState(() {});
+
       },
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -47,18 +54,36 @@ class _PoadsItemsBuilderState extends State<PoadsItemsBuilder> {
                     ActionPane(motion: const ScrollMotion(), children: [
                   SlidableAction(
                     onPressed: ((context) {
-                      // print(taher.removeLast());
+                      audio.open(
+                        Audio(widget.audio),
+                        showNotification: true,
+                      );
                     }),
                     backgroundColor: Colors.black,
-                    icon: Icons.audiotrack_outlined,
+                    icon: Icons.play_arrow,
                   ),
                   SlidableAction(
                     onPressed: ((context) async {
                       // print(taher.removeLast());
+                      audio.stop();
+                      setState(() {
+
+                      });
                     }),
                     backgroundColor: Colors.amber,
-                    icon: Icons.download_sharp,
+                    icon: Icons.stop,
                   ),
+                  SlidableAction(
+                    onPressed: ((context) async {
+                      // print(taher.removeLast());
+
+                      setState(() {
+                      });
+                    }),
+                    backgroundColor: Colors.brown,
+                    icon: Icons.download,
+                  ),
+
                 ]),
                 child: ListTile(
                   title: Row(

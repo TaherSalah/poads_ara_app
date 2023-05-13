@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../style/colors.dart';
 
+// ignore: must_be_immutable
 class CategTitles extends StatelessWidget {
    CategTitles({Key? key, required this.title,this.subtitle,this.onPressed})
       : super(key: key);
