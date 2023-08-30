@@ -17,7 +17,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
     return Scaffold(
 
       body: SafeArea(
-        child: Column(
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             myDivider(),
             CategInsideTitles(

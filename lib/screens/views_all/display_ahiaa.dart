@@ -15,20 +15,22 @@ class _AhiaaScreenState extends State<AhiaaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('الأحيـــاء'),
 
-      ),
-      body: SingleChildScrollView(
-        child: Column(
+      body: SafeArea(
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             myDivider(),
-            CategTitles(title: 'الأحيـــاء'),
+            CategInsideTitles(
+              title: 'الأحياء',
+              onPressed: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  )),
+            ),
             myDivider(),
             const ItemsBuilder(),
-            const ItemsBuilder(),
-            const ItemsBuilder(),
-
           ],
         ),
       ),

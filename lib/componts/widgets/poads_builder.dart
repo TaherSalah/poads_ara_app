@@ -59,7 +59,7 @@ class _PoadsItemsBuilderState extends State<PoadsItemsBuilder> {
                         showNotification: true,
                       );
                     }),
-                    backgroundColor: Colors.black,
+                    backgroundColor: Colors.green,
                     icon: Icons.play_arrow,
                   ),
                   SlidableAction(
@@ -70,18 +70,8 @@ class _PoadsItemsBuilderState extends State<PoadsItemsBuilder> {
 
                       });
                     }),
-                    backgroundColor: Colors.amber,
+                    backgroundColor: Colors.black,
                     icon: Icons.stop,
-                  ),
-                  SlidableAction(
-                    onPressed: ((context) async {
-                      // print(taher.removeLast());
-
-                      setState(() {
-                      });
-                    }),
-                    backgroundColor: Colors.brown,
-                    icon: Icons.download,
                   ),
 
                 ]),

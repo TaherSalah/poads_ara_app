@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:poads_app/screens/home/controller/home_controller.dart';
+import 'package:poads_app/screens/views_all/display_ahiaa.dart';
+import 'package:poads_app/screens/views_all/display_economie.dart';
+import 'package:poads_app/screens/views_all/display_phalcafa.dart';
 
 import '../../componts/widgets/divider.dart';
 import '../../componts/widgets/poads_builder.dart';
@@ -47,51 +50,89 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
             )
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            // physics: const BouncingScrollPhysics(),
-            children: [
-              myDivider(),
-              CategTitles(
-                  title: 'اللغة العربية',
-                  subtitle: "عرض الكل",
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ArabicScreen(),
-                        ));
-                  }),
-              myDivider(),
-              const ItemsBuilder(),
-              myDivider(),
-              CategTitles(
-                title: 'التاريخ',
+        body: ListView(
+          physics: const BouncingScrollPhysics(),
+          children: [
+            myDivider(),
+            CategTitles(
+                title: 'اللغة العربية',
                 subtitle: "عرض الكل",
                 onPressed: () {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const HistoryScreen(),
+                        builder: (context) => const ArabicScreen(),
                       ));
-                },
-              ),
-              const ItemsBuilder(),
-              myDivider(),
-              CategTitles(
-                title: 'الجغرافيا',
-                subtitle: "عرض الكل",
-                onPressed: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const GeoghaphicScreen(),
-                      ));
-                },
-              ),
-              const ItemsBuilder(),
-            ],
-          ),
+                }),
+            myDivider(),
+            const ItemsBuilder(),
+            myDivider(),
+            CategTitles(
+              title: 'التاريخ',
+              subtitle: "عرض الكل",
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HistoryScreen(),
+                    ));
+              },
+            ),
+            const ItemsBuilder(),
+            myDivider(),
+            CategTitles(
+              title: 'الجغرافيا',
+              subtitle: "عرض الكل",
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const GeoghaphicScreen(),
+                    ));
+              },
+            ),
+            const ItemsBuilder(),
+            myDivider(),
+            CategTitles(
+              title: 'الأقتصاد',
+              subtitle: "عرض الكل",
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const EconomieScreen(),
+                    ));
+              },
+            ),
+            const ItemsBuilder(),
+            myDivider(),
+
+            CategTitles(
+              title: 'الفلسفة',
+              subtitle: "عرض الكل",
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FalsaScreen(),
+                    ));
+              },
+            ),
+            const ItemsBuilder(),
+            myDivider(),
+            CategTitles(
+              title: 'الأحياء',
+              subtitle: "عرض الكل",
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AhiaaScreen(),
+                    ));
+              },
+            ),
+            const ItemsBuilder(),
+          ],
         ),
       ),
     );

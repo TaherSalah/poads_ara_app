@@ -21,16 +21,38 @@ class LoginController extends ControllerMVC {
       setState(() {
         isLoading = true;
       });
+  final user=await  FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+
+
+
       setState(() {
         isLoading = false;
       });
+        // ignore: use_build_context_synchronously
+
       // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => HomeScreen(),
           ));
-
+      // ignore: use_build_context_synchronously
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text("Welcom back !"),
+            content:  Text("${user.user?.email}"),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text("Okay"))
+            ],
+          );
+        },
+      );
     } on FirebaseAuthException catch (e) {
       setState(() {
         isLoading = false;
@@ -111,7 +133,6 @@ class LoginController extends ControllerMVC {
           MaterialPageRoute(
             builder: (context) => HomeScreen(),
           ));
-
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case "operation-not-allowed":

@@ -15,20 +15,21 @@ class _FalsaScreenState extends State<FalsaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('الفلسفة'),
-
-      ),
-      body: SingleChildScrollView(
-        child: Column(
+      body: SafeArea(
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             myDivider(),
-            CategTitles(title: 'الفلسفة'),
+            CategInsideTitles(
+              title: 'الفلسفة',
+              onPressed: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  )),
+            ),
             myDivider(),
             const ItemsBuilder(),
-            const ItemsBuilder(),
-            const ItemsBuilder(),
-
           ],
         ),
       ),

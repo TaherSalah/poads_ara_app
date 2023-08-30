@@ -35,7 +35,22 @@ class RegisterController extends ControllerMVC {
           MaterialPageRoute(
             builder: (context) => HomeScreen(),
           ));
-
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text("Welcom"),
+            content:  Text("${credential.user?.email}"),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text("Okay"))
+            ],
+          );
+        },
+      );
       return credential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {

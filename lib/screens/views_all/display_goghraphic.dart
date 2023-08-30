@@ -16,7 +16,8 @@ class _GeoghaphicScreenState extends State<GeoghaphicScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             myDivider(),
             CategInsideTitles(
