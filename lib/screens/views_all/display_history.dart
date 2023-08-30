@@ -15,22 +15,25 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('التاريخ'),
 
-      ),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Column(
           children: [
             myDivider(),
-            CategTitles(title: 'التاريخ'),
+            CategInsideTitles(
+              title: 'التاريخ',
+              onPressed: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  )),
+            ),
             myDivider(),
             const ItemsBuilder(),
-
-
           ],
         ),
       ),
+
     );
   }
 }

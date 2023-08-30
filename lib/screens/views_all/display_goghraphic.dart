@@ -15,17 +15,19 @@ class _GeoghaphicScreenState extends State<GeoghaphicScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('الجغرافيا'),
-      ),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Column(
           children: [
             myDivider(),
-            CategTitles(title: 'الجغرافيا'),
+            CategInsideTitles(
+              title: 'الجغرافيا',
+              onPressed: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  )),
+            ),
             myDivider(),
-            const ItemsBuilder(),
-            const ItemsBuilder(),
             const ItemsBuilder(),
           ],
         ),

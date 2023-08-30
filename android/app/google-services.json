@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "434935568502",
+    "project_id": "poad-app",
+    "storage_bucket": "poad-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434935568502:android:5a151a3cb924323cdce757",
+        "android_client_info": {
+          "package_name": "com.example.poads_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434935568502-fqo1ocsmjk36o9ko6cnu9r5r31mq3hmm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.poads_app",
+            "certificate_hash": "defc7f29bc75c8af6c57cb777388057ceb8fde25"
+          }
+        },
+        {
+          "client_id": "434935568502-rj8m0gusaui6qkjss78bt5lenbqjto05.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.poads_app",
+            "certificate_hash": "d18c30cb08434a2250ff2fefdcd5fbb6fc955b00"
+          }
+        },
+        {
+          "client_id": "434935568502-ob0fpl8dprtb35g38lvf46tl9p492u1i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvGNZ0kwM4X65je4KNABSICC3avvYJMg8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434935568502-ob0fpl8dprtb35g38lvf46tl9p492u1i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
