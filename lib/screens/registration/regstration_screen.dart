@@ -1,8 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:poads_app/componts/widgets/validate.dart';
-import 'package:poads_app/screens/home/home_screen.dart';
 import 'package:poads_app/screens/login/login_screen.dart';
 import 'package:poads_app/screens/registration/controller/register_controller.dart';
 import 'package:poads_app/widgets/loading_screen.dart';
@@ -17,6 +15,7 @@ class RegisterScreen extends StatefulWidget {
   TextEditingController userNameController = TextEditingController();
 
   @override
+  // ignore: library_private_types_in_public_api
   _RegisterScreenState createState() => _RegisterScreenState();
 }
 
@@ -41,13 +40,13 @@ class _RegisterScreenState extends StateMVC<RegisterScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Center(
                     child:
                         Image.asset(height: 150, 'assets/images/micLogo.png')),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 const Text(

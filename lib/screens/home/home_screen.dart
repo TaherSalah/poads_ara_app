@@ -1,12 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 import 'package:poads_app/screens/home/controller/home_controller.dart';
-import 'package:poads_app/screens/login/login_screen.dart';
-import 'package:poads_app/widgets/loading_screen.dart';
 
 import '../../componts/widgets/divider.dart';
-import '../../componts/widgets/navigator.dart';
 import '../../componts/widgets/poads_builder.dart';
 import '../../componts/widgets/titles.dart';
 import '../../models/arabic_contant_model.dart';
@@ -35,25 +31,25 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async => false,
-      child: LoadingScreen(
-        loading: con.isLoading,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Poads Arab'),
-            actions: [
-              InkWell(
-                onTap: () async {
-                  await con.logout(context);
-                },
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Icon(Icons.logout),
-                ),
-              )
-            ],
-          ),
-          body: ListView(
-            physics: const BouncingScrollPhysics(),
+      child: Scaffold(
+        appBar: AppBar(
+          leading: const Icon(Icons.mic_none_sharp),
+          title: const Text('Pods Arab'),
+          actions: [
+            InkWell(
+              onTap: () async {
+                await con.logout(context);
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.logout),
+              ),
+            )
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            // physics: const BouncingScrollPhysics(),
             children: [
               myDivider(),
               CategTitles(
@@ -67,7 +63,7 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                         ));
                   }),
               myDivider(),
-              const SizedBox(child: ItemsBuilder()),
+              const ItemsBuilder(),
               myDivider(),
               CategTitles(
                 title: 'التاريخ',
@@ -80,7 +76,7 @@ class _HomeScreenState extends StateMVC<HomeScreen> {
                       ));
                 },
               ),
-              const SizedBox(child: ItemsBuilder()),
+              const ItemsBuilder(),
               myDivider(),
               CategTitles(
                 title: 'الجغرافيا',
@@ -107,24 +103,22 @@ class ItemsBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemBuilder: (context, index) {
-            return PoadsItemsBuilder(
-                audio: araContents[index].audio,
-                title: araContents[index].title,
-                subtitle: araContents[index].desc,
-                index: '${index + 1}');
-          },
-          separatorBuilder: (context, index) {
-            return const SizedBox(
-              height: 5,
-            );
-          },
-          itemCount: araContents.length),
-    );
+    return ListView.separated(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+          return PoadsItemsBuilder(
+              audio: araContents[index].audio,
+              title: araContents[index].title,
+              subtitle: araContents[index].desc,
+              index: '${index + 1}');
+        },
+        separatorBuilder: (context, index) {
+          return const SizedBox(
+            height: 5,
+          );
+        },
+        itemCount: araContents.length);
   }
 }

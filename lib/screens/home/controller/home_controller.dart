@@ -2,7 +2,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-import 'package:poads_app/screens/home/home_screen.dart';
 import 'package:poads_app/screens/login/login_screen.dart';
 
 

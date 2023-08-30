@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           builder: (context, state) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Poads App',
+              title: 'Pods App',
               theme: ThemeData(
                 primarySwatch: Colors.deepPurple,
               ),

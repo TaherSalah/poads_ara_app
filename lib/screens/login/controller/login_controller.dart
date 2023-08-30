@@ -21,8 +21,6 @@ class LoginController extends ControllerMVC {
       setState(() {
         isLoading = true;
       });
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
       setState(() {
         isLoading = false;
       });
@@ -54,6 +52,7 @@ class LoginController extends ControllerMVC {
             );
           },
         );
+        // ignore: avoid_print
         print('No user found for that email.');
       } else if (e.code == 'wrong-password') {
         showDialog(
@@ -72,6 +71,7 @@ class LoginController extends ControllerMVC {
             );
           },
         );
+        // ignore: avoid_print
         print('Wrong password provided for that user.');
       }
     }
@@ -82,7 +82,6 @@ class LoginController extends ControllerMVC {
       setState(() {
         isLoading = true;
       });
-      final userCredential = await FirebaseAuth.instance.signInAnonymously();
 
       // ignore: use_build_context_synchronously
       showDialog(
@@ -101,6 +100,7 @@ class LoginController extends ControllerMVC {
           );
         },
       );
+      // ignore: avoid_print
       print("Signed in with temporary account.");
       setState(() {
         isLoading = false;
@@ -115,6 +115,7 @@ class LoginController extends ControllerMVC {
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case "operation-not-allowed":
+          // ignore: avoid_print
           print("Anonymous auth hasn't been enabled for this project.");
           showDialog(
             context: context,
@@ -135,6 +136,7 @@ class LoginController extends ControllerMVC {
           );
           break;
         default:
+          // ignore: avoid_print
           print("Unknown error.");
           showDialog(
             context: context,

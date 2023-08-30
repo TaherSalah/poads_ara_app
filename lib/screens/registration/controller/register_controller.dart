@@ -39,7 +39,7 @@ class RegisterController extends ControllerMVC {
       return credential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        // ignore: use_build_context_synchronously
+        // ignore: use_build_context_synchronously, avoid_print
         print('The password provided is too weak.');
         showDialog(
           context: context,
@@ -97,9 +97,11 @@ class RegisterController extends ControllerMVC {
           },
         );
 
+        // ignore: avoid_print
         print('The account already exists for that email.');
       }
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }

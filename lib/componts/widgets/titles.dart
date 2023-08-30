@@ -43,6 +43,7 @@ class CategTitles extends StatelessWidget {
     );
   }
 }
+// ignore: must_be_immutable
 class CategInsideTitles extends StatelessWidget {
   CategInsideTitles({Key? key, required this.title,this.subtitle,this.onPressed})
       : super(key: key);
@@ -67,7 +68,7 @@ class CategInsideTitles extends StatelessWidget {
             ),
             const Spacer(),
 
-            IconButton(onPressed: onPressed, icon:Icon(Icons.arrow_back_ios_new_outlined) ),
+            IconButton(onPressed: onPressed, icon:const Icon(Icons.arrow_back_ios_new_outlined) ),
           ],
         ),
       ),

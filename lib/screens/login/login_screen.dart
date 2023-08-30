@@ -1,19 +1,21 @@
-import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
-import 'package:poads_app/screens/home/home_screen.dart';
 import 'package:poads_app/screens/login/controller/login_controller.dart';
 import 'package:poads_app/screens/registration/regstration_screen.dart';
 import 'package:poads_app/widgets/loading_screen.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatefulWidget {
   final userCredential = FirebaseAuth.instance;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  LoginScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginScreenState createState() => _LoginScreenState();
 }
 
@@ -42,13 +44,13 @@ class _LoginScreenState extends StateMVC<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Center(
                     child:
                         Image.asset(height: 150, 'assets/images/micLogo.png')),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 const Text(
@@ -163,22 +165,6 @@ class _LoginScreenState extends StateMVC<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     InkWell(
-                      onTap: () async {},
-                      child: Card(
-                          elevation: 10,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Image.asset(
-                              'assets/images/google.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                          )),
-                    ),
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    InkWell(
                       onTap: () async {
                         await con.signInAnonymously(context);
                       },
@@ -209,28 +195,3 @@ class _LoginScreenState extends StateMVC<LoginScreen> {
   }
 }
 
-// Future<UserCredential> signInWithGoogle(BuildContext context) async {
-//   // Trigger the authentication flow
-//
-//   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-//
-//   // Obtain the auth details from the request
-//   final GoogleSignInAuthentication? googleAuth =
-//   await googleUser?.authentication;
-//
-//   // Create a new credential
-//   final credential = GoogleAuthProvider.credential(
-//     accessToken: googleAuth?.accessToken,
-//     idToken: googleAuth?.idToken,
-//   );
-//
-//   // ignore: use_build_context_synchronously
-//   Navigator.push(
-//       context,
-//       MaterialPageRoute(
-//         builder: (context) => const SplashScreen(),
-//       ));
-//
-//   // Once signed in, return the UserCredential
-//   return await FirebaseAuth.instance.signInWithCredential(credential);
-// }
