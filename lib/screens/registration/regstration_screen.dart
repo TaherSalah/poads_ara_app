@@ -145,7 +145,7 @@ class _RegisterScreenState extends StateMVC<RegisterScreen> {
                       // passwordController.text = data;
                     },
                     keyboardType: TextInputType.phone,
-                    validator: Validator.phone,
+                    validator: Validator.mobilePhone,
                     decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.phone_android),
                         hintText: 'Enter Your phone number',
