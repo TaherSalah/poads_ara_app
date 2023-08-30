@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
+import 'package:poads_app/componts/widgets/validate.dart';
 import 'package:poads_app/screens/login/controller/login_controller.dart';
 import 'package:poads_app/screens/registration/regstration_screen.dart';
 import 'package:poads_app/widgets/loading_screen.dart';
@@ -61,12 +62,8 @@ class _LoginScreenState extends StateMVC<LoginScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     controller: widget.emailController,
-                    validator: (value) {
-                      if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value!)) {
-                        return 'Please enter a valid email address';
-                      }
-                      return null;
-                    },
+                    validator: Validator.email,
+
                     onChanged: (data) {
                       // email = data;
                     },
@@ -89,14 +86,10 @@ class _LoginScreenState extends StateMVC<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    validator: (value) {
-                      if (value!.trim().length < 4) {
-                        return 'Password must be at least 8 characters in length';
-                      }
-                      return null;
-                    },
+                    validator: Validator.password,
+
                     controller: widget.passwordController,
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.number,
                     onChanged: (data) {
                       // password = data;
                     },

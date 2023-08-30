@@ -13,6 +13,7 @@ class RegisterScreen extends StatefulWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController userNameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   @override
   // ignore: library_private_types_in_public_api
@@ -58,6 +59,8 @@ class _RegisterScreenState extends StateMVC<RegisterScreen> {
                   child: TextFormField(
                     controller: widget.userNameController,
                     onChanged: (data) {},
+                    keyboardType: TextInputType.name,
+
                     validator: Validator.name,
                     decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.person),
@@ -78,15 +81,13 @@ class _RegisterScreenState extends StateMVC<RegisterScreen> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     controller: widget.emailController,
+                    keyboardType: TextInputType.emailAddress,
+
                     onChanged: (data) {
                       // emailController.text = data;
                     },
-                    validator: (value) {
-                      if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value!)) {
-                        return 'Please enter a valid email address';
-                      }
-                      return null;
-                    },
+                    validator: Validator.email,
+
                     decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.email_outlined),
                         hintText: 'Enter Your Email',
@@ -110,15 +111,14 @@ class _RegisterScreenState extends StateMVC<RegisterScreen> {
                     onChanged: (data) {
                       // passwordController.text = data;
                     },
-                    validator: (value) {
-                      if (value!.trim().length < 2) {
-                        return 'Password must be at least 8 characters in length';
-                      }
-                      return null;
-                    },
+
+                    keyboardType: TextInputType.number,
+
+                    validator: Validator.password,
                     decoration: InputDecoration(
                         suffixIcon: InkWell(
                           onTap: togglePassword,
+
                           child: widget.isActive
                               ? const Icon(Icons.visibility_off)
                               : const Icon(Icons.visibility),
@@ -130,6 +130,30 @@ class _RegisterScreenState extends StateMVC<RegisterScreen> {
                           borderSide: BorderSide(color: Colors.green),
                         ),
                         enabledBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        )),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    controller: widget.phoneController,
+                    onChanged: (data) {
+                      // passwordController.text = data;
+                    },
+                    keyboardType: TextInputType.phone,
+                    validator: Validator.phone,
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(Icons.phone_android),
+                        hintText: 'Enter Your phone number',
+                        label: Text('phone'),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.green),
+                        ),
+                        enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white),
                         )),
                   ),

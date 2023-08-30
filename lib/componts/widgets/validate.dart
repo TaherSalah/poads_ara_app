@@ -3,7 +3,8 @@ class Validator {
   //////  Start Validator Email ///////
   static String? email(String? value) {
     if (value!.isEmpty) {
-      return 'من فضلك قم باذخال الايميل الالكتروني المسجل بالفعل';
+      // return 'من فضلك قم باذخال الايميل الالكتروني المسجل بالفعل';
+      return 'Please enter the email address already registered';
     } else if (!value.contains('@') || !value.contains('.com')) {
       return 'EX: example@example.com ';
     } else {
@@ -16,6 +17,7 @@ class Validator {
 
   static String? password(String? value) {
     if (value!.isEmpty) {
+      // return 'Please enter your password';
       return 'Please enter your password';
     } else if (value.length < 6) {
       return 'Password must be at least 6 digit';
@@ -28,9 +30,11 @@ class Validator {
   //////  Start Validator Title ///////
   static String? name(String? value) {
     if (value!.isEmpty) {
-      return 'من فضلك قم باذخال اسم المستخدم';
+      // return 'من فضلك قم باذخال اسم المستخدم';
+      return 'Please enter your username';
     } else if (value.length < 8) {
-      return 'يجب ان يتكون اسم المستخدم علي 8 حروف علي الاقل';
+      // return 'يجب ان يتكون اسم المستخدم علي 8 حروف علي الاقل';
+      return 'The user name must contain at least 8 characters';
     } else {
       return null;
     }
